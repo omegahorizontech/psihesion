@@ -1,5 +1,8 @@
 # Psihesion
-Enlightened Social Cohesion
+While growing a Psihesive Network, AI recommendation systems track events, and advanced users can better understand the recommendations of the underlying Psihesive algorithms. Psihesive communities continue to simulate how varying human networks will change, over different timescales, with multiple entities.
+
+## Psihesion - Enlightened Social Cohesion
+Read more about Psihesion [in this PDF Design Specification](./Psihesion-Enlightened_Social_Cohesion.pdf) for more information.
 
 # Code of Conduct
 Be excellent to each other

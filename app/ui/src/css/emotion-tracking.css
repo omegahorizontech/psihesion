@@ -1,0 +1,150 @@
+.emotion--tracking-main_view {
+  display: flex;
+  justify-content: center;
+}
+
+.emotion--tracking-deck {
+  user-select: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: calc(168 * 4px);
+  height: calc(168 * 4px);
+}
+
+.emotion--tracking-history,
+.emotion--tracking-history-empty_message {
+  width: calc(76 * 4px);
+  height: calc(168 * 4px - 16px);
+  margin: 8px 0px;
+  padding: 8px 0px 8px 8px;
+
+  user-select: none;
+  overflow-y: auto;
+
+  background: var(--main-background-02_blur);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.emotion--tracking-history-day {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.emotion--tracking-history > div:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.emotion--tracking-history-empty_message {
+  font-family: var(--font-01);
+  font-size: var(--size-04);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+ * These classnames are added to the elements dynamically from the data
+ */
+.emotion--100_bkgd-01 {
+  border: 1px solid var(--swatch-04);
+}
+
+.emotion--50_bkgd-01 {
+  border: 1px solid var(--swatch-07);
+}
+
+.emotion--25_bkgd-01 {
+  border: 1px solid var(--swatch-10);
+}
+
+.emotion--100_bkgd-02 {
+  border: 1px solid var(--swatch-04);
+}
+
+.emotion--50_bkgd-02 {
+  border: 1px solid var(--swatch-07);
+}
+
+.emotion--25_bkgd-02 {
+  border: 1px solid var(--swatch-10);
+}
+
+.emotion--100_bkgd-03 {
+  border: 1px solid var(--swatch-04);
+}
+
+.emotion--50_bkgd-03 {
+  border: 1px solid var(--swatch-07);
+}
+
+.emotion--25_bkgd-03 {
+  border: 1px solid var(--swatch-10);
+}
+
+.emotion--100_bkgd-04 {
+  border: 1px solid var(--swatch-04);
+}
+
+.emotion--50_bkgd-04 {
+  border: 1px solid var(--swatch-07);
+}
+
+.emotion--25_bkgd-04 {
+  border: 1px solid var(--swatch-10);
+}
+
+.emotion--tracking-modal {
+  width: calc(var(--main-area-width) * .5);
+  height: calc(var(--main-area-height) * .5);
+}
+
+.emotion--tracking-icon_group > .svg-icon {
+  height: calc(var(--size-01) * 3);
+  width: calc(var(--size-01) * 3);
+
+  margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .emotion--tracking-main_view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .emotion--tracking-deck {
+    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(48 * 4px);
+    height: inherit;
+  }
+
+  .emotion--tracking-deck > div > div.general--card_square {
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+  }
+
+  .emotion--tracking-history,
+  .emotion--tracking-history-empty_message {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(var(--main-area-width) - 1px);
+    height: calc(var(--main-area-height) * .3);
+  }
+
+  .emotion--tracking-icon_group > .svg-icon {
+    height: calc(var(--size-01) * 1);
+    width: calc(var(--size-01) * 1);
+  }
+
+  .emotion--tracking-modal {
+    width: calc(var(--main-area-width) * .75);
+  }
+}

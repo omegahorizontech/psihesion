@@ -1,0 +1,163 @@
+.general--clock {
+  margin-right: 8px;
+  line-height: 16px;
+  text-align: right;
+}
+
+.general--top_bar-right-action {
+  width: 80px;
+}
+
+.general--main_area {
+  margin-top: var(--top-bar-height);
+  margin-left: var(--side-bar-width);
+  margin-right: var(--side-bar-width);
+  margin-bottom: var(--bottom-bar-height);
+  height: var(--main-area-height);
+}
+
+.general--top_bar,
+.general--bottom_bar {
+  position: absolute;
+  z-index: 100;
+  width: 100vw;
+  text-align: center;
+}
+
+.general--top_bar {
+  top: 0;
+  left: 0;
+  height: var(--top-bar-height);
+  background: var(--main-background-02_blur);
+  border-bottom: 1px solid var(--swatch-09);
+}
+
+.general--top_bar-left,
+.general--top_bar-right {
+  width: 32vw;
+  color: var(--swatch-04);
+}
+
+.general--top_bar-center {
+  width: 36vw;
+  text-align: center;
+  font-family: var(--font-01);
+  font-size: var(--size-05)
+}
+
+.general--bottom_bar {
+  height: var(--bottom-bar-height);
+  top: calc(var(--top-bar-height) + var(--main-area-height));
+  left: 0;
+  z-index: 99;
+  line-height: 16px;
+  background: var(--background-02);
+  color: var(--main-02);
+  border-top: 1px solid var(--swatch-03);
+}
+
+.general--bottom_bar > i {
+  margin: 0px 4px
+}
+
+/*
+ * Primary Navigation
+ */
+
+.general--sidebar {
+  background: -moz-linear-gradient(top, var(--background-01) 0%, var(--background-02) 80%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, var(--background-01) 0%, var(--background-02) 80%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, var(--background-01) 0%, var(--background-02) 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.general--sidebar-empty {
+  opacity: .5;
+
+  background: -moz-linear-gradient(top, var(--background-01) 0%, var(--background-02) 30%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, var(--background-01) 0%, var(--background-02) 30%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, var(--background-01) 0%, var(--background-02) 30%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.general--sidebar_header {
+  height: 2vh;
+}
+
+.general--sidebar,
+.general--sidebar-empty {
+  position: absolute;
+  width: var(--side-bar-width);
+  padding: 8px;
+  padding-top: 24px;
+}
+
+.general--left_sidebar {
+  padding-left: 16px; /* Offsets the general margin-right for icons */
+  border-right: 1px solid var(--swatch-04);
+  left: 0;
+  top: 0;
+  height: 100vh;
+
+  z-index: 100;
+}
+
+.general--sidebar.active {
+  -webkit-transition: width .2s; /* For Safari 3.1 to 6.0 */
+  transition: width .2s;
+
+  width: calc(var(--side-bar-width) * 5);
+}
+
+.general--right_sidebar,
+.general--right_sidebar-empty {
+  height: var(--main-area-height);
+
+  border-left: 1px solid var(--swatch-09);
+  right: 0;
+  top: var(--top-bar-height);
+
+  z-index: 100;
+
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.general--nav_item_group {
+  margin-top: 48px;
+  font-size: var(--size-05);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.general--nav_item-icon_cell {
+  margin-bottom: 16px;
+  animation: fadein .4s ease-in;
+}
+
+.general--sidebar,
+.general--sidebar-empty,
+.general--tray {
+  -webkit-transition: width .2s; /* For Safari 3.1 to 6.0 */
+  transition: width .2s;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .general--top_bar-right-action {
+    width: 30px;
+  }
+
+  /* Don't display extra text for the smaller devices */
+  .general--top_bar-right-action > div,
+  .general--bottom_bar > div {
+    display: none;
+  }
+
+}

@@ -1,0 +1,69 @@
+.general--modal_icon {
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+}
+
+.general--modal_icon > div {
+  padding: 4px;
+}
+
+.general--modal {
+  height: var(--main-area-height);
+  width: var(--main-area-width);
+  min-width: 184px;
+
+  margin-top: var(--top-bar-height);
+  margin-left: var(--side-bar-width);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+
+  background: var(--main-background-01_blur);
+  backdrop-filter: blur(12px);
+
+  filter: drop-shadow(0px -400px 400px var(--main-background-04_blur-inv));
+}
+
+.general--modal-title {
+  padding-top: 16px;
+  padding-left: 16px;
+}
+
+.general--modal-sub_title {
+  padding-left: 16px;
+  padding-bottom: 16px;
+}
+
+.general--modal-content_title {
+  font-weight: var(--weight-03);
+  padding-top: 32px;
+}
+
+.general-modal-content {
+  text-align: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: calc(var(--main-area-height) * .25);
+  overflow-y: overlay;
+}
+
+.general--modal > .general--button_large {
+  margin-bottom: 42px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .general--modal-title,
+  .general--modal-sub_title {
+    padding-left: 0px;
+  }
+
+}

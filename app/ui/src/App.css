@@ -1,0 +1,16 @@
+.landing {
+  width: 34rem;
+}
+
+psi-image-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+psi-image-group > img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 4rem;
+  object-fit: cover;
+}

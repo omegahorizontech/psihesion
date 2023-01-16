@@ -1,0 +1,220 @@
+/*
+ * Standard CSS patterns because DRY
+ *
+ * Includes:
+ * Cursors
+ * Flex
+ * Form
+ * Container
+ * Button Group
+ * Error Message
+ * Muted Message
+ * Omega Colors
+ * Margin
+ * Visibility
+ */
+
+.standard_pointer {
+  cursor: pointer;
+  user-select: none;
+}
+
+.standard_loading {
+  cursor: wait;
+  user-select: none;
+}
+
+.standard_flex_start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.standard_flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.standard_flex_end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.standard_flex_around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.standard_flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.standard_flex_column {
+  flex-direction: column;
+  min-height: 12vh; /* Columns have some height by default */
+}
+
+.standard_heading_padding {
+  padding: 32px;
+  padding-bottom: 16px;
+}
+
+.standard_padding {
+  padding: 16px;
+}
+
+.standard_margin {
+  margin: 16px;
+}
+
+.standard_half_margin {
+  margin: 8px;
+}
+
+.standard_center_align {
+  text-align: center;
+  width: 100%;
+}
+
+.standard_form_heading {
+  margin: 64px 0px 16px 0px;
+}
+
+.standard_secondary_heading > h4,
+.standard_form_heading > h5 {
+  color: var(--swatch-03);
+  font-weight: var(--weight-02);
+}
+
+.standard_secondary_heading_margin,
+.standard_microcopy_margin {
+  margin: 0px 32px 32px 32px;
+}
+
+.standard_full_width {
+  width: calc(var(--main-area-width));
+}
+
+.standard_width {
+  width: calc(var(--main-area-width) / 1.5);
+}
+
+.standard_min_width {
+  min-width: 288px;
+}
+
+.standard_min_height {
+  min-height: 588px;
+}
+
+.standard_form {
+  width: calc(var(--main-area-width) / 2);
+}
+
+.standard_sidebar_form {
+  max-width: calc(var(--side-bar-width) * 4)
+}
+
+.standard_container {
+  height: calc(var(--main-area-height) - 144px);
+  overflow: auto;
+}
+
+.standard_select-left_pane {
+  width: 420px;
+}
+
+.standard_select-right_pane {
+  width: calc(var(--main-area-width) - 420px);
+}
+
+.standard_button_group > a:not(:first-child) {
+  margin-left: 8px;
+}
+
+.standard_error_message {
+  color: var(--error-01);
+}
+
+.standard_muted_message {
+  color: var(--swatch-05);
+}
+
+.standard_form_error_message {
+  height: var(--size-06);
+  font-size: var(--size-06);
+  font-weight: 700;
+}
+
+.standard_alert_error_message {
+  font-size: var(--size-05);
+  font-weight: 400;
+  line-height: 4px;
+
+  height: var(--size-05);
+  padding: calc(var(--size-05) * 2);
+
+  color: var(--error-02);
+  background: var(--error-02-inv);
+
+  border: 1px solid var(--error-02);
+  border-radius: calc(var(--size-05) / 4);
+}
+
+.standard_alert_error_message > .svg-icon {
+  height: var(--size-04);
+  width: var(--size-04);
+  fill: var(--error-02);
+  margin-right: calc(var(--size-05) / 4);
+}
+
+.standard_genic_icon {
+  fill: var(--elu-01);
+}
+
+.standard_biotic_icon {
+  fill: var(--bio-01);
+}
+
+.standard_kubernetic_icon {
+  fill: var(--kub-01);
+}
+
+.standard_psionic_icon {
+  fill: var(--psi-01);
+}
+
+.standard_auxonic_icon {
+  fill: var(--aux-01);
+}
+
+.standard_elutheric_icon {
+  fill: var(--elu-01);
+}
+
+@media only screen and (max-width: 600px) {
+
+  .standard_form {
+    width: calc(var(--main-area-width));
+  }
+
+  .standard_alert_error_message {
+    margin: 16px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .standard_alert_error_message > .svg-icon {
+    width: calc(var(--min-icon) * 2);
+  }
+
+  .standard_alert_error_message > div {
+    line-height: normal;
+  }
+
+}

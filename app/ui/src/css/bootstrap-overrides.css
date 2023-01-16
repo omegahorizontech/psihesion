@@ -1,0 +1,36 @@
+.form-control {
+  background-color: var(--swatch-02);
+}
+
+.form-control::placeholder {
+  color: var(--swatch-10);
+}
+
+.standard_flex_end.form-group > .form-label {
+  margin-right: 16px;
+}
+
+.standard_flex_end.form-group > select {
+  width: 240px;
+  cursor: pointer;
+}
+
+.standard_flex_end.form-group > select > option:hover {
+  background: red
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 8px;
+}
+
+.card-text {
+  padding: 8px;
+  font-weight: var(--weight-02);
+  display: flex;
+  align-items: center;
+}

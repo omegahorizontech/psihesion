@@ -1,0 +1,218 @@
+.general--card_group {
+  height: calc(var(--main-area-height) * .5);
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  margin: 8px;
+  padding-top: 0px;
+  overflow: auto;
+}
+
+.general--card_group > div:not(:last-child) {
+  margin-right: 16px;
+}
+
+.general--card_deck {
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  margin: 32px;
+  max-height: calc(var(--main-area-height) * .5 + 48px);
+}
+
+.general--card_deck-two_card_height {
+  height: 336px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.general--card {
+  width: 320px;
+  height: 320px;
+}
+
+.general--card_large,
+.general--card_form {
+  width: 640px;
+}
+
+.general--card_filter {
+  height: 48px;
+  width: calc(var(--main-area-width) - 96px);
+}
+.general--card_large_square,
+.general--card_form_square {
+  width: 320px;
+}
+
+.general--card_large,
+.general--card_form,
+.general--card_form_square {
+  height: 320px;
+}
+
+.general--card_form.reg:hover,
+.general--card_form_square.reg:hover {
+  background: var(--main-background-02_blur);
+  cursor: default;
+}
+
+.general--card_tall {
+  width: 160px;
+  height: 320px;
+}
+
+.general--card_wide {
+  width: 320px;
+  height: 152px;
+  margin: 0px 0px 16px 0px;
+}
+
+.general--card_square {
+  width: 152px;
+  height: 152px;
+  margin: 8px;
+}
+
+.general--card_icon {
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+}
+
+.general--card_icon > div {
+  padding: 4px;
+}
+
+.general--card,
+.general--card_form,
+.general--card_filter,
+.general--card_large,
+.general--card_tall,
+.general--card_form_square,
+.general--card_large_square,
+.general--card_wide,
+.general--card_square,
+.general--card_icon {
+  min-width: 184px;
+
+  transition: 0.1s;
+  cursor: pointer;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 8px;
+
+  filter: drop-shadow(0px 4px 4px #000); /* Adds emphasis to cards */
+
+  /* No select */
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.general--card:hover,
+.general--card_form,
+.general--card_filter,
+.general--card_tall:hover,
+.general--card_wide:hover,
+.general--card_square:hover,
+.general--card_large:hover,
+.general--card_icon:hover {
+  transition: 0.1s;
+}
+
+.general--card-title {
+  padding: 8px;
+  font-weight: var(--weight-03);
+  display: flex;
+  align-items: center;
+}
+
+.general--card-selected {
+  border: 1px solid var(--background-01-inv) !important;
+  background-color: var(--main-background-02_blur-inv) !important;
+  fill: var(--main_01)
+}
+
+.general--card-selected:hover {
+  background-color: var(--main-background-01_blur-inv) !important;
+}
+
+/*
+ * IDEA: Look at this technique
+ * https://css-tricks.com/beyond-media-queries-using-newer-html-css-features-for-responsive-designs/
+ */
+
+.general--card-image {
+  height: 100%;
+  object-fit: cover;
+  opacity: .25;
+  border-radius: 8px;
+}
+
+.general--card-form-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  opacity: .25;
+  border-radius: 8px;
+}
+
+.general--card-image_band {
+  width: 100%;
+  height: 40px;
+  object-fit: cover;
+  filter: brightness(0%);
+}
+
+.general--card-filter {
+  padding: 0px 32px 0px 32px;
+  max-width: 576px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .general--card_filter {
+    height: 68px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .general--card,
+  .general--card_wide,
+  .general--card_tall {
+    width: calc(var(--main-area-width) - 32px);
+    margin-bottom: 8px;
+  }
+
+
+  .general--card_square > div {
+    padding: 4px;
+  }
+
+  .general--card_group {
+    flex-wrap: wrap;
+
+    overflow-y: auto;
+    height: calc(var(--main-area-height) * .70);
+    margin-bottom: calc(var(--bottom-bar-height) * 2);
+  }
+
+  .general--card_group > div:not(:last-child) {
+    margin-right: 0px;
+  }
+
+  .general--card {
+    height: calc(var(--main-area-width) - 32px);
+    width: calc(var(--main-area-width) - 32px);
+  }
+
+}

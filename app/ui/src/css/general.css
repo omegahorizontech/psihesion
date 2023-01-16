@@ -1,0 +1,357 @@
+.inv {
+  border: 1px solid var(--main-background-02_blur-inv);
+  background: var(--main-background-02_blur);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  color: var(--main-02);
+  fill: var(--main-02);
+}
+
+.inv:hover {
+  background: var(--main-background-01_blur);
+}
+
+.reg {
+  border: 1px solid var(--main-background-02_blur);
+  background: var(--main-background-02_blur);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  color: var(--main-02);
+  fill: var(--main-02);
+}
+
+.reg:hover {
+  background: var(--main-background-01_blur);
+}
+
+#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  opacity: .4;
+}
+
+.no_margin {
+  margin: 0px !important;
+}
+
+/* For layout purposes */
+.no_visibility {
+  visibility: hidden;
+}
+
+.text_center {
+  text-align: center;
+}
+
+/*
+ * Button Styles
+ *
+ * Includes:
+ * General Button
+ * General Button Action Group
+ * General Large Button
+ *
+ */
+
+.general--button {
+  display: inline-block;
+
+  min-width: 160px;
+  text-align: center;
+
+  border-right: 2.5px solid var(--swatch-03);
+  border-left: 2.5px solid var(--swatch-07);
+  border-radius: 4px;
+}
+
+.general--button > div:nth-child(2) {
+  margin: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.general--button > div:nth-child(2) > * {
+  font-size: var(--size-05);
+}
+
+.general--button > div:nth-child(2) > svg {
+  width: var(--size-05);
+  margin-right: 4px;
+}
+
+.general--button-action_group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.general--button_borderless {
+  background-image: url('images/oht-psi_bkgd_04.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  border: 0px !important;
+  margin: 24px 0px;
+
+  filter: drop-shadow(0px 4px 4px var(--swatch-12)); /* Adds emphasis to buttons */
+}
+
+.general--button-action_group > .general--button_large:not(:first-child) {
+  margin-left: 16px;
+}
+
+.general--button_medium {
+  width: 264px;
+}
+
+.general--button_large {
+  width: 352px;
+}
+
+.general--button_medium,
+.general--button_large {
+  display: inline-block;
+
+  text-align: center;
+  border-radius: 4px;
+
+  cursor: pointer;
+  user-select: none;
+  fill: var(--main-01);
+}
+
+.general--button_medium > div:nth-child(2),
+.general--button_large > div:nth-child(2) {
+  margin: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.general--button_medium > div:nth-child(2) > * {
+  font-size: var(--size-05);
+}
+
+.general--button_large > div:nth-child(2) > * {
+  font-size: var(--size-04);
+}
+
+.general--button_medium.general--button_borderless > div:nth-child(2) > *,
+.general--button_large.general--button_borderless > div:nth-child(2) > * {
+  font-weight: var(--weight-03);
+}
+
+.general--button_medium > div:nth-child(2) > svg {
+  width: var(--size-03);
+  margin-right: 4px;
+}
+
+.general--button_large > div:nth-child(2) > svg {
+  width: var(--size-01);
+  margin-right: 8px;
+}
+
+
+.general--button_large_circle {
+  background-image: url('images/pexels-frank-cone-2495173_opacity20.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  filter: grayscale(1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: var(--size-02);
+  font-family: var(--font-01);
+
+  width: 320px;
+  height: 320px;
+  margin: 24px 32px;
+  text-align: center;
+
+  border-radius: 160px;
+
+  cursor: pointer;
+  user-select: none;
+  fill: var(--main-01);
+
+  filter: drop-shadow(0px 4px 4px #000); /* Adds emphasis to buttons */
+
+  border: 2px solid var(--swatch-10);
+}
+
+.general--button_large_circle:hover {
+  background-color: var(--main-background-01_blur) !important;
+
+  fill: var(--swatch-01);
+  color: var(--swatch-01);
+}
+
+.general--button_large_circle > span  {
+  font-weight: var(--weight-03);
+}
+
+.general--button:hover,
+.general--button_large:hover {
+  background: var(--swatch-07); /* Old browsers */
+  background: -moz-linear-gradient(right, var(--swatch-03) 0%, var(--swatch-07) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(right, var(--swatch-03) 0%, var(--swatch-07) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to left, var(--swatch-03) 0%, var(--swatch-07) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+  fill: var(--swatch-01);
+  color: var(--swatch-01);
+}
+
+.general--button_medium.general--button_borderless:hover,
+.general--button_large.general--button_borderless:hover {
+  background-color: var(--main-background-01_blur) !important;
+  background-image: url('images/oht-psi_bkgd_04.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  fill: var(--swatch-01);
+  color: var(--swatch-01);
+}
+
+.general--button.general--button_disabled,
+.general--button_large.general--button_disabled {
+  background-color: var(--main-background-02_blur);
+  cursor: not-allowed;
+}
+
+.general--button.general--button_disabled.general--button_borderless{
+  background-image: url('images/oht-psi_bkgd_04.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.general--button > div:first-child,
+.general--button > div:last-child,
+.general--button_large > div:first-child,
+.general--button_large > div:last-child {
+  background: var(--swatch-07); /* Old browsers */
+  background: -moz-linear-gradient(right, var(--swatch-03) 0%, var(--swatch-07) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(right, var(--swatch-03) 0%, var(--swatch-07) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to left, var(--swatch-03) 0%, var(--swatch-07) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+  height: 1px;
+}
+
+.general--button_borderless > div:first-child,
+.general--button_borderless > div:last-child {
+  height: 0px;
+}
+
+/* Loading Indicator */
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.general--loading-spinner {
+  width: 24px;
+  height: 24px;
+  animation: rotation .80s infinite linear;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.general--loading_margin {
+  margin: 8px;
+}
+
+.general--loading-group.easeout {
+  animation: fadeout .4s ease-out;
+  opacity: 0;
+  align-items:flex-end;
+}
+
+.general--loading-group > .general--loading-icon:not(:last-child) {
+  margin-right: 8px;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.general--loading-icon {
+  width: 24px;
+  height: 24px;
+  animation: fadein .4s ease-in;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .general--button {
+    width: auto;
+  }
+
+  .general--button > div > span {
+    display: none;
+  }
+
+  .general--button > div > svg.svg-icon {
+    margin-right: 0px;
+  }
+
+  .general--loading_margin {
+    margin: 0px;
+    margin-bottom: 8px;
+  }
+
+  .general--button-action_group {
+    flex-direction: column;
+    margin: 0px;
+    width: calc(var(--main-area-width) - 32px);
+    position: absolute;
+  }
+
+  .general--button-action_group > .general--button_large:not(:first-child) {
+    margin-left: 0px;
+  }
+
+  .general--button-action_group > div:not(:last-child) {
+    display: none;
+  }
+
+  .general--button_large {
+    width: calc(var(--main-area-width));
+    border: 0px;
+  }
+
+}

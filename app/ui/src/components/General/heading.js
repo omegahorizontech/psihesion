@@ -2,10 +2,39 @@ import React from 'react';
 
 import Icon, { EmotionIcon, DiscoveryIcon } from '../../icons/Icons';
 
+export const PanelHeading = ({ iconType, icon, text, children }) => {
+
+  return (
+    <div className="standard_flex_between standard_panel_margin">
+      <h4 className="standard_flex_start no_margin">
+        { iconType == 'discovery' && (
+          <>
+          <DiscoveryIcon name={icon} />
+          { text }
+          </>
+        )}
+        { iconType == 'emotion' && (
+          <>
+          <EmotionIcon name={icon} />
+          { text }
+          </>
+        )}
+        { !iconType && (
+          <>
+          <Icon name={icon} />
+          { text }
+          </>
+        )}
+      </h4>
+      { children }
+    </div>
+  );
+};
+
 export const MicrocopyHeading = ({ iconType, icon, text, children }) => {
 
   return (
-    <div className="standard_flex_between standard_microcopy_margin">
+    <div className="standard_microcopy_heading standard_flex_between standard_microcopy_margin">
       <h4 className="standard_flex_start no_margin">
         { iconType == 'discovery' && (
           <>

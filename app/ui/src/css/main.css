@@ -90,7 +90,7 @@ h6, .h6, small {
   font-weight: var(--weight-03)
 }
 
-div, p, span, label, {
+div, p, span, label {
   font-size: inherit;
 }
 

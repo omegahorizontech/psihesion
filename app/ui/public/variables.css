@@ -1,0 +1,106 @@
+:root {
+  --main-01: #f0f9f4;
+  --main-02: #e5ebe7;
+  --background-01: #041B34;
+  --background-02: #000001;
+  --main-background-01_blur: #041B34b3; /* Opacity is 70% */
+  --main-background-02_blur: #041B3466; /* Opacity is 40% */
+  --main-background-03_blur: #041B3433; /* Opacity is 20% */
+
+  --main-01-inv: #000001;
+  --main-02-inv: #041B34;
+  --background-01-inv: #e5ebe7;
+  --background-02-inv: #f0f9f4;
+  --main-background-01_blur-inv: #cde6ed; /* Opacity is 100% */
+  --main-background-02_blur-inv: #cde6ede6; /* Opacity is 90% */
+  --main-background-03_blur-inv: #cde6edb3; /* Opacity is 70% */
+  --main-background-04_blur-inv: #cde6ed66; /* Opacity is 40% */
+
+  --font-01: 'Poiret One', Helvetica, Arial, sans-serif;
+  --font-02: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --weight-01: 100;
+  --weight-02: 400;
+  --weight-03: 700;
+
+  --size-00: 14px; /* The size to base each other size on */
+  --size-01: calc(var(--size-00) * 5.14);
+  --size-02: calc(var(--size-00) * 3.42);
+  --size-03: calc(var(--size-00) * 3.14);
+  --size-04: calc(var(--size-00) * 1.70);
+  --size-05: calc(var(--size-00) * 1.15);
+  --size-06: calc(var(--size-00) * 0.85);
+  --min-icon: 32px;
+  /* Media queries read from these sizes */
+  --size-01-mobile: calc(var(--size-00) * 1.5);
+  --size-02-mobile: calc(var(--size-00) * 1.25);
+  --size-03-mobile: calc(var(--size-00) * 1.15);
+  --size-04-mobile: calc(var(--size-00) * 1.00);
+  --size-05-mobile: calc(var(--size-00) * 0.95);
+  --size-06-mobile: calc(var(--size-00) * 0.85);
+
+  --swatch-01: #f0f9f4;
+  --swatch-02: #e5ebe7;
+  --swatch-03: #cde6ed;
+  --swatch-04: #A5D5E2;
+  --swatch-05: #3E96BA;
+  --swatch-06: #14588B;
+  --swatch-07: #093A69;
+  --swatch-08: #062646;
+  --swatch-09: #041B34;
+  --swatch-10: #021125;
+  --swatch-10-rgb-value: 2, 17, 37; /* Useful for working with RGBA */
+  --swatch-11: #010815;
+  --swatch-12: #000001;
+
+  /* Elu - pink */
+  --elu-01: #F8BBD0;
+  --elu-02: #EC407A;
+  /* Aux - red */
+  --aux-01: #FFCDD2;
+  --aux-02: #EF5350;
+  /* Psi - purple */
+  --psi-01: #D1C4E9;
+  --psi-02: #7E57C2;
+  /* Kub - dark green */
+  --kub-01: #C8E6C9;
+  --kub-02: #2E7D32;
+  /* Bio - cyan */
+  --bio-01: #B2DFDB;
+  --bio-02: #26A69A;
+  /* Gen - gold */
+  --gen-01: #FFF9C4;
+  --gen-02: #FDD835;
+
+  /* Color States */
+  --error-01: #FF5722;
+  --error-02: #BF360C;
+  --error-02-inv: #FBE9E7;
+
+  --top-bar-height: 24px;
+  --side-bar-width: calc(var(--top-bar-height) * 2);
+  --bottom-bar-height: var(--top-bar-height);
+
+  --main-area-height: calc(100vh - var(--top-bar-height) - var(--bottom-bar-height));
+  --main-area-width: calc(100vw - (2 * var(--side-bar-width)));
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px var(background-02);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--swatch-03);
+  outline: 1px solid var(--background-02);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--background-02);
+}

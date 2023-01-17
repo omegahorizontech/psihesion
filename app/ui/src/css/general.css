@@ -61,6 +61,16 @@
  *
  */
 
+.general--landing {
+  width: calc(var(--main-area-width) * 2 / 3);
+  height: var(--main-area-height);
+}
+
+.general--landing .general--button {
+  margin-top: 2rem;
+  width: calc(var(--main-area-width) / 3);
+}
+
 .general--button {
   display: inline-block;
 
@@ -220,14 +230,13 @@
 
 .general--button_medium.general--button_borderless:hover,
 .general--button_large.general--button_borderless:hover {
-  background-color: var(--main-background-01_blur) !important;
   background-image: url('images/oht-psi_bkgd_04.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  fill: var(--swatch-01);
-  color: var(--swatch-01);
+  fill: var(--swatch-04);
+  color: var(--swatch-04);
 }
 
 .general--button.general--button_disabled,

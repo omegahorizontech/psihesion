@@ -5,8 +5,6 @@ import Card from 'react-bootstrap/Card';
 
 import Icon, { EmotionIcon } from '../../icons/Icons';
 
-// import FieldGraph from '../D3/field-graph'
-
 export const CustomFilterCard = ({
   iconType, icon, title, img, text, inv, extraClass, variant, children
 }) => {

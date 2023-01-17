@@ -21,7 +21,9 @@ const LeftBar = () => {
     'standard_flex_start',
   ]
 
-  activeSidebarState ? sideBarClasses.push('active') : '';
+  if (activeSidebarState) {
+    sideBarClasses.push('active');
+  }
 
   return (
     <div className={sideBarClasses.join(' ')}>
@@ -112,7 +114,7 @@ const TopBar = ({user}) => {
       </div>
       <div className="general--top_bar-center">
         <Link to="/">
-          Omega Discovey
+          Psihesion
         </Link>
       </div>
       <div className="general--top_bar-right standard_flex_end">

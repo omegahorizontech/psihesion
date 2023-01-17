@@ -10,6 +10,9 @@ import socialDiscovery from './images/pexels-brett-sayles-3653997_opacity20.png'
 import rustLock from './images/pexels-francesco-ungaro-3847285.jpg'
 
 import CustomCard from '../General/custom-card'
+import CustomButton from '../General/custom-button'
+import { PanelHeading } from '../General/heading';
+import Panel from '../General/panel'
 import LoadingIndicator from '../General/loading-indicator'
 
 const Home = ({ /* 'Props' from paraent component */ }) => {
@@ -24,39 +27,27 @@ const Home = ({ /* 'Props' from paraent component */ }) => {
 
   return (
     <>
-      <div className="home--banner">
-        <div className="landing">
-          <h1>Psihesion</h1>
-          <psi-image-group
-            imageroot={imageroot}
-            imagelist={imagelist}>
-          </psi-image-group>
+      <div className='standard_flex_between'>
+        <div className="general--landing standard_flex_column standard_flex_center">
+            <h1>Psihesion</h1>
+            <h2>Enlightened Social Cohesion</h2>
+            <Link to={'/'}>
+                <CustomButton text={'View Reports'}/>
+            </Link>
         </div>
-      </div>
-      <div className="general--card_group standard_flex_center">
-        <div>
-          <Link to={DISCOVERY_ROUTE}>
-            <CustomCard
+        <Panel>
+          <PanelHeading
               iconType={''}
-              icon={'bioTech'}
-              title="Social Discovery"
-              inv={false}
-              variant={'wide'}
-              img={socialDiscovery}
-              text={'Find opportunities automatically'}/>
-          </Link>
-        </div>
-        <div>
-          <Link to={SAMPLE_AUTH_ROUTE}>
-            <CustomCard
-              icon={'lockSecure'}
-              title='Log In'
-              inv={true}
-              img={rustLock}
-              variant={'wide'}
-              text={'To start, log in or sign up'}/>
-          </Link>
-        </div>
+              icon={'permIdentity'}
+              text={'People'}>
+          </PanelHeading>
+          <div className="general--panel-microcopy">Find others with a detailed searched</div>
+          <div className='general--panel-text'>Explore the possibility of connecting with others. Find others with specific filtering based on their qualities.</div>
+          <psi-image-group
+              imageroot={imageroot}
+              imagelist={imagelist}>
+          </psi-image-group>
+        </Panel>
       </div>
     </>
   );

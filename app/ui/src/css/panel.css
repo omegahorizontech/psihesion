@@ -1,0 +1,25 @@
+.general--panel {
+    background-color: rgba(var(--swatch-10-rgb-value), 0.2);
+    border-top: 1px solid var(--swatch-04);
+    border-bottom: 1px solid var(--swatch-04);
+
+    padding: 2rem;
+    margin: 2rem;
+    width: calc(var(--main-area-width) / 3);
+}
+
+.general--panel-microcopy {
+    color: var(--swatch-01);
+    font-size: var(--size-04);
+    font-family: var(--font-01);
+}
+
+.general--panel-text {
+    color: var(--swatch-04);
+    font-family: var(--font-02);
+}
+
+.general--panel .general--button {
+    margin-top: 2rem;
+    width: 100%;
+}

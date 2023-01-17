@@ -91,9 +91,18 @@
   font-weight: var(--weight-02);
 }
 
+.standard_microcopy_heading > h4 {
+  color: var(--swatch-04);
+  font-weight: var(--weight-01);
+}
+
 .standard_secondary_heading_margin,
 .standard_microcopy_margin {
   margin: 0px 32px 32px 32px;
+}
+
+.standard_panel_margin {
+  margin: 1rem 0rem;
 }
 
 .standard_full_width {

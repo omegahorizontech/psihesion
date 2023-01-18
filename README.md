@@ -20,6 +20,12 @@ Be excellent to each other
 - Documents
     - Additional documentation for understanding Psihesion
 
+- Data
+    - Mock Data for various testing and prototyping
+
+- app
+    - Prototype code
+
 # License
 GNU GENERAL PUBLIC LICENSE (Version 3, 29 June 2007)
 

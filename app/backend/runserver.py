@@ -2,11 +2,11 @@ from app import app
 import sys
 
 from api.auth.views import auth
-from api.persons.views import persons
+from api.profiles.views import profiles
 from api.users.views import users
 
 app.register_blueprint(auth, url_prefix='/auth')
-app.register_blueprint(persons, url_prefix='/persons')
+app.register_blueprint(profiles, url_prefix='/profiles')
 app.register_blueprint(users, url_prefix='/users')
 
 # Sets the port, or defaults to 80

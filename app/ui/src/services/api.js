@@ -1,6 +1,6 @@
 import AxiosUtil from '../util/axois-util';
 
-export const getNodes = () => AxiosUtil.get('/query-management/nodes/', null);
+export const getNodes = () => AxiosUtil.get('/profiles/', null);
 export const postNode = (node) => AxiosUtil.post('/query-management/nodes/', null, node);
 
 export const getEdges = () => AxiosUtil.get('/query-management/edges/', null);

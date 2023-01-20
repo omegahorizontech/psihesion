@@ -11,7 +11,7 @@ import CustomButton from '../General/custom-button'
 import PrimaryHeading, { SecondaryHeading, MicrocopyHeading } from '../General/heading'
 import Overview from './overview'
 import Search from './search'
-// import Nodes from './nodes'
+import Nodes from './nodes'
 // import Edges from './edges'
 // import Relationships from './relationships'
 // import Fields from './fields'
@@ -128,7 +128,7 @@ const Discovery = ({ general }) => {
               updateRequestData={(key, data) => {updateRequestData(key, data)}}
             />
           )}
-{/*
+
           { activeSubPage == 'nodes' && (
             <Nodes
               selectedNodes={requestData['node']}
@@ -137,7 +137,7 @@ const Discovery = ({ general }) => {
               updateRequestData={(key, data) => {updateRequestData(key, data)}}
             />
           )}
-
+{/*
           { activeSubPage == 'edges' && (
             <Edges
               selectedEdges={requestData['edge']}

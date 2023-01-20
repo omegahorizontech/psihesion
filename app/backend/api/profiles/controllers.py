@@ -10,9 +10,11 @@ from bson import json_util
 # Mock Data
 from pipes import mock_data_to_class
 
-def get_person(id):
+def get_profile(id):
     return "Not Implemented"
 
-def get_persons(query):
+def get_profiles(query):
     # IDEA: Refactor mock data when shifting to database
-    return mock_data_to_class.load()
+    return {
+        "nodes": mock_data_to_class.load()
+    }

@@ -1,0 +1,117 @@
+.general--table {
+    margin: 4rem;
+    border: 1px solid var(--swatch-07);
+}
+
+.general--table-bold {
+    font-weight: var(--weight-03);
+}
+
+.table--general-affinity_bar_label {
+    width: 4rem;
+}
+
+.table--general-affinity_bar_element {
+    display: flex;
+}
+
+.table--general-affinity_bar_group :nth-child(1) > .table--general-affinity_bar {
+    background-color: var(--elu-01);
+    border: 1px solid var(--elu-02);
+}
+
+.table--general-affinity_bar_group :nth-child(2) > .table--general-affinity_bar {
+    background-color: var(--aux-01);
+    border: 1px solid var(--aux-02);
+}
+
+.table--general-affinity_bar_group :nth-child(3) > .table--general-affinity_bar {
+    background-color: var(--psi-01);
+    border: 1px solid var(--psi-02);
+}
+
+.table--general-affinity_bar_group :nth-child(4) > .table--general-affinity_bar {
+    background-color: var(--kub-01);
+    border: 1px solid var(--kub-02);
+}
+
+.table--general-affinity_bar_group :nth-child(5) > .table--general-affinity_bar {
+    background-color: var(--bio-01);
+    border: 1px solid var(--bio-02);
+}
+
+.table--general-affinity_bar_group :nth-child(6) > .table--general-affinity_bar {
+    background-color: var(--gen-01);
+    border: 1px solid var(--gen-02);
+}
+
+.table--general-affinity_bar {
+    font-weight: var(--weight-03);
+    height: 2rem;
+}
+
+.general--table-row-image {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 3.5rem;
+    margin: 0.5rem;
+    object-fit: cover;
+}
+
+.general--table-head {
+    font-weight: var(--weight-03);
+    padding: 1rem;
+    border-bottom: 1px solid var(--swatch-07);
+}
+
+.general--table-body {
+    overflow-y: auto;
+    max-height: calc(var(--main-area-height) * .6);
+}
+
+.general--table-row {
+    border-bottom: 1px solid var(--swatch-07);
+    padding: 2rem;
+}
+
+.general--table-head,
+.general--table-row {
+    display: flex;
+}
+
+.general--table-1st {
+    width: calc((var(--main-area-width) - 8rem) * 0.05);
+}
+
+.general--table-row > .general--table-1st {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.general--table-2nd {
+    width: calc((var(--main-area-width) - 8rem) * 0.3);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.general--table-row > .general--table-1st {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.general--table-3rd {
+    width: calc((var(--main-area-width) - 8rem) * 0.2);
+}
+
+.general--table-4th {
+    width: calc((var(--main-area-width) - 8rem) * 0.3);
+}
+
+.general--table-5th {
+    width: calc((var(--main-area-width) - 8rem) * 0.15);
+    
+    display: flex;
+    align-items: center;
+}

@@ -70,7 +70,7 @@
   --bio-02: #26A69A;
   /* Gen - gold */
   --gen-01: #FFF9C4;
-  --gen-02: #FDD835;
+  --gen-02: #C3A527; /* Too Bright -> #FDD835; */
 
   /* Color States */
   --error-01: #FF5722;

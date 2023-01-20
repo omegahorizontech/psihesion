@@ -11,8 +11,7 @@ import psiBkgd from './images/oht-psi_bkgd_04.png'
 import CustomButton from '../General/custom-button'
 import CustomCardSearch from '../General/custom-card-search'
 import PrimaryHeading, { SecondaryHeading, MicrocopyHeading } from '../General/heading'
-
-import Form from 'react-bootstrap/Form';
+import ProfileTable from '../General/table'
 
 const Nodes = ({
   selectedNodes,
@@ -26,7 +25,7 @@ const Nodes = ({
   }, [dispatch]);
   const { loading, error } = general;
 
-  const { possibleNodes } = useSelector((state) => state.node );
+  const { nodes } = useSelector((state) => state.node );
 
   return (
     <div>
@@ -38,21 +37,11 @@ const Nodes = ({
           <a className="standard_pointer" onClick={() => {updateActiveSubPage('overview')}}>
             <CustomButton icon={'arrowBack'} text={'Back'}/>
           </a>
-          <a className="standard_pointer" onClick={() => {updateActiveSubPage('newNode')}}>
-            <CustomButton icon={'addCircle'} text={'New'}/>
-          </a>
         </div>
       </SecondaryHeading>
-      <MicrocopyHeading text={'Toggle cards to add nodes, or create a new node first'} />
+      <MicrocopyHeading text={'View various entities'} />
 
-      <CustomCardSearch
-        type={'node'}
-        data={possibleNodes}
-        selectedComponents={selectedNodes}
-        updateRequestData={updateRequestData}
-        cardImg={psiBkgd}
-        emptyText={'There aren\'t any nodes, why not create one?'}
-        filterText={'Search for nodes'} />
+      <ProfileTable data={nodes}></ProfileTable>
     </div>
   );
 };

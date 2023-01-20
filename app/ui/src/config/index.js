@@ -14,7 +14,7 @@ export const isProduction = () => ENVIRONMENT === ENVIRONMENT_PRODUCTION;
 let api = {
   defaultTimeout: 90000,
   // local development settings:
-  baseUrl: 'http://0.0.0.0:5000',
+  baseUrl: 'http://127.0.0.1:5000',
 };
 
 if (isProduction()) {

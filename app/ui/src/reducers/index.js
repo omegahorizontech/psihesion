@@ -9,7 +9,7 @@ import field from './field';
 import filter from './filter';
 
 export default combineReducers({
-  // Add reduers in this decomposition
+  // Add reducers in this decomposition
   general,
   user,
   profile,

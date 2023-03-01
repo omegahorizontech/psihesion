@@ -11,3 +11,19 @@ Tasks in progress:
 - Design endpoints for getting Euclidean distance between two locations; finding cliques for a node.
 
 I'm not satisfied with the above schema, I need something more normalized and comprehensive. I want something like PERSON, LOCATION, PRODUCT, ORGANIZATION and then collision tables as necessary. 
+
+
+### 02/28/2023
+
+After including this little line in the config/databases.py file:
+
+```
+app.app_context().push()
+```
+
+The database successfully gets created. I still need to execute the code that loads csv data into the DB. 
+
+Gentle remind, to run the app, use this:
+```
+python .\runserver.py 5000
+```

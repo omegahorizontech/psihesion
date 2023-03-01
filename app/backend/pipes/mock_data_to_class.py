@@ -7,12 +7,13 @@ dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, '../../../Data/person.csv')
 
 def load():
-    data = readers.read_csv(filename)
-    rows = data[1:]
+    return "Profiles go"
+    # data = readers.read_csv(filename)
+    # rows = data[1:]
 
-    person_data = []    
-    for row in rows:
-        p = Person(*row)
-        person_data.append(p)
+    # person_data = []    
+    # for row in rows:
+    #     p = Person(*row)
+    #     person_data.append(p)
 
-    return person_data
+    # return person_data

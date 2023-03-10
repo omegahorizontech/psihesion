@@ -1,7 +1,7 @@
 import os
 
 from helpers import readers
-from classes.Person import Person
+# from classes.Person import Person
 
 dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, '../../../Data/person.csv')

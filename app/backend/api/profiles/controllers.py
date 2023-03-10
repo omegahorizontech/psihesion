@@ -13,7 +13,7 @@ from pipes import mock_data_to_class
 from classes.Person import Person
 
 def get_profile(id):
-    return "Not Implemented"
+    return Person.query.get(id)
 
 # def get_profiles(query):
 #     # IDEA: Refactor mock data when shifting to database
@@ -23,5 +23,5 @@ def get_profile(id):
 
 def get_profiles(query):
     persons = Person.query.all()
-    print(dir(persons))
+    # print(dir(persons))
     return {i: str(x) for i, x in enumerate(persons)}

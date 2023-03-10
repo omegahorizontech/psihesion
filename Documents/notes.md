@@ -13,7 +13,7 @@ Tasks in progress:
 I'm not satisfied with the above schema, I need something more normalized and comprehensive. I want something like PERSON, LOCATION, PRODUCT, ORGANIZATION and then collision tables as necessary. 
 
 
-### 02/28/2023
+### 02/28/2023 
 
 After including this little line in the config/databases.py file:
 
@@ -27,3 +27,17 @@ Gentle remind, to run the app, use this:
 ```
 python .\runserver.py 5000
 ```
+
+### 03/10/2023 
+
+I have: 
+[x] Basic ORMs for Location, Person, Organization, and Products. 
+[x] Endpoints for viewing orgs, products, persons. 
+[x] Some logic for the endpoint for L2 distance between persons. I need a complete ORM for a cross product between PERSON and LOCATION. 
+
+I need to:
+[ ] Complete the logic for the L2 distance endpoint. 
+[ ] Create/load data for orgs, products, and locations. 
+[ ] Create the logic to find cliques.
+[ ] Create the logic to retrieve cliques for a node. 
+[ ] Create the endpoint for retrieving a node's cliques. 

@@ -21,6 +21,5 @@ app.app_context().push()
 sql_db.drop_all()
 # IDEA: If the schema has been updated, do a migration.
 sql_db.create_all()
-# loader.load()
 
 # neo_g = Graph("http://neo4j:admin@0.0.0.0:7474/db/data/")

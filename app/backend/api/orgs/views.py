@@ -8,13 +8,11 @@ from api.config import configurations
 
 orgs = Blueprint('orgs', __name__)
 
-
-# IDEA: Create a separate mvc for Orgs.
 @orgs.route('/<id>/', methods=['GET'])
-def get_profile(id=None):
+def get_org(id=None):
     return jsonify(controllers.get_org(id))
 
 @orgs.route('/', methods=['GET'])
-def get_profile(id=None):
+def get_orgs(id=None):
     query = {}
     return jsonify(controllers.get_orgs(query))

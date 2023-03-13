@@ -8,8 +8,6 @@ from api.config import configurations
 
 profiles = Blueprint('profiles', __name__)
 
-
-
 @profiles.route('/<id>/', methods=['GET'])
 def get_profile(id=None):
     return jsonify(controllers.get_profile(id))

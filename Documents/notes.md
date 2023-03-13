@@ -41,3 +41,8 @@ I need to:
 [ ] Create the logic to find cliques.
 [ ] Create the logic to retrieve cliques for a node. 
 [ ] Create the endpoint for retrieving a node's cliques. 
+
+### 03/13/2023
+
+Use of data in prod requires link back to https://simplemaps.com/data/us-cities.
+

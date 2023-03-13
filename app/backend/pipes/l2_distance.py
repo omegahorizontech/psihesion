@@ -1,31 +1,35 @@
 from flask import Blueprint
 from flask import request
 from flask import jsonify
-from classes import Person
-from classes import Location
-from classes import Person_Location
+# from classes.Person import Person
+from classes.Location import Location
+from classes.Junctions import Person_Location
 from sqlalchemy import Select
+from api.config.databases import sql_db
+import math as m
 
-# Calculate the L2 distance between two locations given their names.
-# Lookup the names.
-# Find their (lat, long) coordinates.
-# Return the Euclidean or L2 distance between them. 
+
+def haversine_distance(lat1, lon1, lat2, lon2):
+    p = m.pi/180
+    a = 0.5 - m.cos((lat2-lat1)*p)/2 + m.cos(lat1*p) * m.cos(lat2*p) * (1-m.cos((lon2-lon1)*p))/2
+    # Radius of Earth = 6371 km
+    return 12742 * m.asin(m.sqrt(a)) / 1.60934 #2*R*asin...
 
 def l2_distance(person_1, person_2):
     loc_ids = []
-    for person in [person_1, person_2]:
-        loc_ids.append(Select(Person_Location).where(Person_Location.person_id == person).location_id)
-    # loc_2 = Select(Person_Location).where(Person_Location.person_id == person_2).location_id
     locs = []
+
+    for person in [person_1, person_2]:
+        result = sql_db.session.scalars(Select(Person_Location).where(Person_Location.person_id == person)).all()[0]
+        loc_ids.append(result.location_id)
+
     for loc in loc_ids:
         locs.append(Location.query.get(loc))
 
-    coords = [(loc.longitude, loc.latitude) for loc in locs]
-    # loc_1 = Person_Location.query.get(person_id=person_1)
-    # loc_1 = Person_Location.query.where
-    # loc_2 = Person_Location.query.where(person_id=person_2) 
-    # IDEA: grab the locations for both the above person-locations
-    pass 
+    coords = [(loc.latitude, loc.longitude) for loc in locs]
+    return haversine_distance(*coords[0], *coords[1])
+
+# Setup Endpoints
 
 distance = Blueprint('distance', __name__)
 

@@ -46,3 +46,18 @@ I need to:
 
 Use of data in prod requires link back to https://simplemaps.com/data/us-cities.
 
+I loaded location data, associated each person with a location, then completed the distance endpoint functionality for person-to-person distance. 
+
+Tomorrow, I'd like to load in organization data, associate each person with some number of orgs, associate each org with a location, then find cliques. 
+
+I have: 
+[x] Completed the logic for the L2 distance endpoint. 
+[x] Created/loaded data for locations. 
+[x] Associated each person with a location.
+
+Later:
+[ ] Create/load data for orgs. 
+[ ] Associate each org with a location.
+[ ] Create the logic to find cliques.
+[ ] Create the logic to retrieve cliques for a node. 
+[ ] Create the endpoint for retrieving a node's cliques. 

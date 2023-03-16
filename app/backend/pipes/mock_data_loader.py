@@ -1,5 +1,6 @@
 import os
 import random
+from pathlib import Path
 
 from helpers import readers, writers
 
@@ -87,3 +88,29 @@ def load_data():
         person_data.append(row)
 
     writers.write_csv(filename, person_data) 
+
+
+
+def gen_org_name():
+    """Generate a reasonable org name, returns String"""
+    type_names = ["Engineering", "Motors", "Electrical", "Plumbing", "Services", "Restaurants"]
+    name_endings = ["Corp.", "Corporation", "Incorporated", "Limited", "LLC", "Company", "Group", "Organization"]
+    # org_name = last_names + type_name + name_ending
+    org_name = f"{random.choice(last_names)} {random.choice(type_names)} {random.choice(name_endings)}".lower()
+    return org_name
+
+def gen_phone_num():
+    """Generate a reasonable phone number, returns Integer"""
+    return int(random.choice(area_codes) + str(random.randint(1000000, 9999999)))
+
+
+def create_org_data(num_rows=1000):
+    """Create a csv with (semi-)synthetic organization data"""
+    
+    column_names = ["id", "name", "org_type", "phone_num"]
+    org_data = [(row, gen_org_name(), random.choice(common_roles), gen_phone_num()) for row in range(num_rows)]
+    org_data = [column_names] + org_data
+
+    writers.write_csv(Path("../../Data/organization.csv").resolve(), org_data)
+    
+    return

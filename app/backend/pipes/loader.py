@@ -42,3 +42,16 @@ def intersect_person_location():
                                         location_id=random.choice(locations).id)) for person in persons]
     sql_db.session.commit()
     return
+
+def load_organizations():
+    """Load organizations from a csv file into the ORGANIZATION table"""
+    with open("../../Data/organization.csv") as csv_file:
+        csv_reader = csv.reader(csv_file)
+        column_names = csv_reader.__next__()
+        cols = dict(zip(column_names, range(len(column_names))))
+        _ = [sql_db.session.add(Location(name=row[cols["name"]],
+                    org_type=row[cols["org_type"]],
+                    phone_num=row[cols["phone_num"]])) for row in csv_reader]
+    sql_db.session.commit()
+    return 
+

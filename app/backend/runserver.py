@@ -31,6 +31,7 @@ else:
 loader.load()
 loader.load_locations()
 loader.intersect_person_location()
+loader.load_organizations()
 
 # print("Hello World!!!")
 # loader.load()

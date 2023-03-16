@@ -55,3 +55,10 @@ def load_organizations():
     sql_db.session.commit()
     return 
 
+def associate_person_organization():
+    """Create and load data for the association of PERSON and ORGANIZATION data"""
+    pass 
+
+def associate_organization_location():
+    """Create and load data for the association of ORGANIZATION and LOCATION data"""
+    pass 

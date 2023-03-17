@@ -2,7 +2,10 @@ import csv
 import random
 from classes.Person import Person
 from classes.Location import Location
+from classes.Organization import Organization
 from classes.Junctions import Person_Location
+from classes.Junctions import Person_Organization
+from classes.Junctions import Organization_Location
 from api.config.databases import sql_db
 
 # IDEA: Load data into database or generate data as needed.
@@ -49,7 +52,7 @@ def load_organizations():
         csv_reader = csv.reader(csv_file)
         column_names = csv_reader.__next__()
         cols = dict(zip(column_names, range(len(column_names))))
-        _ = [sql_db.session.add(Location(name=row[cols["name"]],
+        _ = [sql_db.session.add(Organization(name=row[cols["name"]],
                     org_type=row[cols["org_type"]],
                     phone_num=row[cols["phone_num"]])) for row in csv_reader]
     sql_db.session.commit()
@@ -57,8 +60,18 @@ def load_organizations():
 
 def associate_person_organization():
     """Create and load data for the association of PERSON and ORGANIZATION data"""
-    pass 
+    persons = Person.query.all()
+    organizations = Organization.query.all()
+    _ = [sql_db.session.add(Person_Organization(person_id=person.id,
+                                                organization_id=random.choice(organizations).id)) for person in persons]
+    sql_db.session.commit()
+    return 
 
 def associate_organization_location():
     """Create and load data for the association of ORGANIZATION and LOCATION data"""
-    pass 
+    organizations = Organization.query.all()
+    locations = Location.query.all()
+    _ = [Organization_Location(organization_id=org.id,
+                               location_id=random.choice(locations).id) for org in organizations]
+    sql_db.session.commit()
+    return 

@@ -5,6 +5,7 @@ from api.auth.views import auth
 from api.profiles.views import profiles
 from api.users.views import users
 from api.orgs.views import orgs
+from api.cliques.views import cliques
 
 from api.config.databases import sql_db
 from classes.Person import Person
@@ -18,6 +19,7 @@ app.register_blueprint(profiles, url_prefix='/profiles')
 app.register_blueprint(orgs, url_prefix='/orgs')
 app.register_blueprint(users, url_prefix='/users')
 app.register_blueprint(distance, url_prefix="/distance")
+app.register_blueprint(cliques, url_prefix="/cliques")
 
 sql_db.drop_all()
 sql_db.create_all()
@@ -30,8 +32,10 @@ else:
 
 loader.load()
 loader.load_locations()
-loader.intersect_person_location()
 loader.load_organizations()
+loader.intersect_person_location()
+loader.associate_person_organization()
+loader.associate_organization_location()
 
 # print("Hello World!!!")
 # loader.load()

@@ -36,6 +36,7 @@ loader.load_organizations()
 loader.intersect_person_location()
 loader.associate_person_organization()
 loader.associate_organization_location()
+loader.associate_person_person()
 
 # print("Hello World!!!")
 # loader.load()

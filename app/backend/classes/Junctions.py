@@ -28,3 +28,12 @@ class Person_Organization(db.Model):
 
     def __repr__(self):
         return f"Person {self.person_id} at Organization {self.organization_id} {self.id}"
+    
+class Person_Person(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    person_1_id = db.Column(db.Integer, ForeignKey("person.id"), nullable=False)
+    person_2_id = db.Column(db.Integer, ForeignKey("person.id"), nullable=False)
+    type_id = db.Column(db.Integer) # IDEA: Use a relation-type lookup table. 
+
+    def __repr__(self):
+        return f"(#{self.id}) Person {self.person_1_id} relates to {self.person_2_id} by {self.type_id}"

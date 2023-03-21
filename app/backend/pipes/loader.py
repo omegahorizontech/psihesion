@@ -6,6 +6,7 @@ from classes.Organization import Organization
 from classes.Junctions import Person_Location
 from classes.Junctions import Person_Organization
 from classes.Junctions import Organization_Location
+from classes.Junctions import Person_Person
 from api.config.databases import sql_db
 
 # IDEA: Load data into database or generate data as needed.
@@ -71,7 +72,22 @@ def associate_organization_location():
     """Create and load data for the association of ORGANIZATION and LOCATION data"""
     organizations = Organization.query.all()
     locations = Location.query.all()
-    _ = [Organization_Location(organization_id=org.id,
-                               location_id=random.choice(locations).id) for org in organizations]
+    _ = [sql_db.session.add(Organization_Location(organization_id=org.id,
+                               location_id=random.choice(locations).id)) for org in organizations]
     sql_db.session.commit()
+    return 
+
+def associate_person_person():
+    """Create and load association table relating PERSON rows to PERSON rows with a relation type"""
+
+    persons = Person.query.all()
+    association_types = list(range(3)) # 0: share location; 1: share org; 2: other
+    num_of_associations = 10000 # Indep variable for number of associations to create between people.
+    pairs = [(random.sample(persons, 2)) for _ in range(num_of_associations)]
+    # print("Number of pairs:", len(pairs))
+    _ = [sql_db.session.add(Person_Person(person_1_id=pair[0].id, 
+                       person_2_id=pair[1].id,
+                       type_id=random.choice(association_types))) for pair in pairs]
+    sql_db.session.commit()
+    # print("Number of Person-Persons:", len(Person_Person.query.all()))
     return 

@@ -1,8 +1,10 @@
 from classes.Junctions import Person_Location
 from classes.Junctions import Person_Organization
 from classes.Junctions import Organization_Location
+from classes.Junctions import Person_Person
 
 import random
+import numpy as np
 
 # Find the cliques which a given node is part of. 
 # neighbors = {}
@@ -19,23 +21,30 @@ def bron_kerbosch(R, P, X, neighbors):
     """
     if not P and not X:
         return R
-    u = random.choice(tuple(P.union(X)))
-    results = []
-    for i, v in enumerate(P.difference(neighbors[u])):
+    
+    u = random.choice(tuple(P.union(X))) # Pivot
+    
+    results = [{}]
+    for v in P.difference(neighbors[u]):
         print(f"We runnin' wit {len(R)}")
-        if i > 0:
-            P = P.difference({v})
-            X = X.union({v})
-        results += bron_kerbosch(R.union({v}), P.intersection(neighbors[v]), X.intersection(neighbors[v]), neighbors)
+        # if i > 0:
+        results.append(bron_kerbosch(R.union({v}), P.intersection(neighbors[v]), X.intersection(neighbors[v]), neighbors))
+        P = P.difference({v})
+        X = X.union({v})
     # IDEA: return the largest R
     result_sizes = [len(r) for r in results]
+    return results[np.argmax(result_sizes)]
     # return biggest result
 
 def find_cliques(id):
 
     pass 
 
-def maximal_clique():
+def grow_graph():
+    pass 
+
+
+def maximal_clique_dep():
     # Get Org-Locs, Person-Locs, Person-Orgs
     neighbors = {}
     person_locations = Person_Location.query.all()
@@ -55,10 +64,34 @@ def maximal_clique():
     neighbors.update({po[1]: neighbors[po[1]].union({po[0]}) if po[1] in neighbors else {po[0]} for po in person_orgs})
 
     edges = person_locations + person_orgs + org_locations 
-    # print(edges)
-    # print(type(list(neighbors.keys())[0]))
+
     P = set()
     _ = [[P.update({v}) for v in tup] for tup in edges]
     print(f"Size of P: {len(P)}")
     return bron_kerbosch(set(), P, set(), neighbors)
     
+
+def maximal_clique():
+    """Query the graph of person-person relationships and find 
+    maximal cliques using the Bron-Kerbosch algorithm."""
+    # If categories like org and person are mixed, we're not going to find
+    # (one of many possible examples) 
+    # orgs in cliques that involve person sets A, B all knowing each other but 
+    # A belonging to org 1 and B belonging to org 2. 
+    # Candidate param: association; e.g., Person_Person; however, we would then need the node names e.g., person_1_id, etc. 
+    edges = [(edge.person_1_id, edge.person_2_id) for edge in Person_Person.query.all()]
+    P = set()
+    _ = [[P.update({vertex}) for vertex in edge] for edge in edges]
+    neighbors = {vertex: set() for vertex in P}
+    def expand_neighbors(edge, neighbors):
+        neighbors[edge[0]].update({edge[1]})
+        # neighbors[edge[0]] = neighbors[edge[0]].union({edge[1]})
+        neighbors[edge[1]].update({edge[0]})
+        # neighbors[edge[1]] = neighbors[edge[1]].union({edge[0]})
+        return
+
+    _ = [expand_neighbors(edge, neighbors) for edge in edges]
+
+    print(f"Size of P: {len(P)}")
+    print(f"Average number of neighbors: {np.mean([len(v) for k, v in neighbors.items()])}")
+    return bron_kerbosch(set(), P, set(), neighbors)

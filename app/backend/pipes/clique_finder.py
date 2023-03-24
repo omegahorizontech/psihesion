@@ -69,7 +69,14 @@ def maximal_clique_dep():
     _ = [[P.update({v}) for v in tup] for tup in edges]
     print(f"Size of P: {len(P)}")
     return bron_kerbosch(set(), P, set(), neighbors)
-    
+
+
+def expand_neighbors(edge, neighbors):
+    """Helper function for building a graph neighbor lookup."""
+    neighbors[edge[0]].update({edge[1]})
+    neighbors[edge[1]].update({edge[0]})
+    return
+
 def maximal_clique():
     """Query the graph of person-person relationships and find 
     maximal cliques using the Bron-Kerbosch algorithm."""
@@ -82,15 +89,8 @@ def maximal_clique():
     P = set()
     _ = [[P.update({vertex}) for vertex in edge] for edge in edges]
     neighbors = {vertex: set() for vertex in P}
-
-    def expand_neighbors(edge, neighbors):
-        neighbors[edge[0]].update({edge[1]})
-        neighbors[edge[1]].update({edge[0]})
-        return
-
+ 
     _ = [expand_neighbors(edge, neighbors) for edge in edges]
-    # IDEA: Could I rewrite the above to do the two updates as a tuple expression? 
-    # _ = [(neighbors[edge[0]].update({edge[1]}), neighbors[edge[1]].update({edge[0]})) for edge in edges]
 
     print(f"Size of P: {len(P)}")
     print(f"Average number of neighbors: {np.mean([len(v) for k, v in neighbors.items()])}")

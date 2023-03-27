@@ -9,84 +9,110 @@ from flask_pymongo import ObjectId
 from bson import json_util
 
 from api.cliques.models import Clique
-# from api.cliques.controllers import get_user_by_email
 
-# def check_auth(request):
-#     response = {}
-#     auth_token = ''
-#     auth_header = request.headers.get('Authorization')
-#     if auth_header:
-#         try:
-#             auth_token = auth_header.split(" ")[1]
-#         except IndexError:
-#             response = {
-#                 'error': 'Token malformed.',
-#                 "code": 400,
-#             }
+from classes.Junctions import Person_Location
+from classes.Junctions import Person_Organization
+from classes.Junctions import Organization_Location
+from classes.Junctions import Person_Person
 
-#     if auth_token:
-#         message = User.decode_auth_token(auth_token)
-#         if message[0] == 'Success':
-#             response = {
-#                 'message': 'Valid token',
-#                 "code": 200,
-#             }
-#         else:
-#             response = {
-#                 'error': message[1]
-#             }
-#     else:
-#         response = {
-#             'error': 'Auth token missing',
-#             "code": 400,
-#         }
+import random
+import numpy as np
+import logging
 
-#     return response
+# Find the cliques which a given node is part of. 
+# neighbors = {}
+def bron_kerbosch_cliques(R, P, X, neighbors):
+    """Bron-Kerbosch algorithm using a pivot to find a maximal subgraph
+    or clique within a set of vertices.
+    ::param R: set of vertices found to be be clique members
+    ::param P: set of all vertices in the graph to analyze
+    ::param X: set of vertices excluded from clique
+    ::param neighbors: lookup for neighbors of vertex v
+    ::returns: List of Sets of vertices found to be maximal subgraph members.
+    ::rtype: List
+    """
+    if not P and not X:
+        return R
+    
+    pivot = random.choice(tuple(P.union(X)))
+     
+    results = [{}]
+    for v in P.difference(neighbors[pivot]):
+        logging.debug(f"We runnin' wit {len(R)}")
+        # results.append()
+        results += [bron_kerbosch(R.union({v}), P.intersection(neighbors[v]), X.intersection(neighbors[v]), neighbors)]
+        P = P.difference({v})
+        X = X.union({v})
+    results = list(filter(lambda x: len(x) > 0, results))
 
-# # Handle the if/else as a distinct clear function
-# def auth_wrapper(request, method):
-#     auth = check_auth(request) # Checks for a valid 'Authorization' Header with a valid token
-#     if 'message' in auth:
-#         return jsonify(method)
-#     else:
-#         return jsonify(auth)
+    return results
 
-# def login(content):
+# IDEA: Use degeneracy ranking to improve speed even more. 
+def bron_kerbosch(R, P, X, neighbors):
+    """Bron-Kerbosch algorithm using a pivot to find a maximal subgraph
+    or clique within a set of vertices.
+    ::param R: set of vertices found to be be clique members
+    ::param P: set of all vertices in the graph to analyze
+    ::param X: set of vertices excluded from clique
+    ::param neighbors: lookup for neighbors of vertex v
+    ::returns: set of vertices found to be maximal subgraph members.
+    ::rtype: Set
+    """
+    if not P and not X:
+        return R
+    
+    u = random.choice(tuple(P.union(X))) # Pivot
+    
+    results = [{}]
+    for v in P.difference(neighbors[u]):
+        logging.debug(f"We runnin' wit {len(R)}")
+        results.append(bron_kerbosch(R.union({v}), P.intersection(neighbors[v]), X.intersection(neighbors[v]), neighbors))
+        P = P.difference({v})
+        X = X.union({v})
 
-#     # IDEA: Try to check if collections exist on app start
-#     try:
-#         omega_db.db.create_collection(users_collection)
-#     except Exception as e:
-#         print(e)
+    result_sizes = [len(r) for r in results]
+    return results[np.argmax(result_sizes)]
 
-#     collection = omega_db.db[users_collection]
+def expand_neighbors(edge, neighbors):
+    """Helper function for building a graph neighbor lookup."""
+    neighbors[edge[0]].update({edge[1]})
+    neighbors[edge[1]].update({edge[0]})
+    return
 
-#     # Validation
-#     # - checks 'email' and 'password' fields
-#     # - checks for duplicate email in mongo
-#     if 'email' not in content:
-#         return {"error": 'An E-mail address is required', "code": 401}
-#     elif content['email'] == None or len(content['email']) == 0:
-#         return {"error": 'An E-mail address is required', "code": 401}
-#     elif content['password'] == None:
-#         return {"error": 'A password is required', "code": 401}
-#     elif 'password' not in content or len(content['password']) == 0:
-#         return {"error": 'A password is required', "code": 401}
-#     else:
-#         user = get_user_by_email(content['email'])
-#         if user:
-#             valid_password = bcrypt.check_password_hash(user['password'], content['password'])
-#             if valid_password:
-#                 new_user_id = str(user['_id'])
-#                 auth_token = User(user).encode_auth_token(new_user_id)
-#                 return {
-#                     "message": 'Welcome back!',
-#                     "token": auth_token,
-#                     "full_name": user['full_name'],
-#                     "code": 200,
-#                 }
+def build_graph(edges):
+    """Given a List of edges, build a neighbor lookup and Set of 
+    vertices in the graph
+    ::param edges: List of all edges in the graph as vertex tuples, e.g., (v1, v2)
+    ::returns: The set of vertices in the graph and a neighbor dictionary
+    ::rtype: Tuple of (Set, Dict)"""
+    P = set()
+    _ = [[P.update({vertex}) for vertex in edge] for edge in edges]
+    neighbors = {vertex: set() for vertex in P}
+    _ = [expand_neighbors(edge, neighbors) for edge in edges]
+    return P, neighbors
 
-#         return {
-#             "error": 'The E-mail and password do not match',
-#             "code": 401,
-#         }
+def maximal_clique():
+    """Query the graph of person-person relationships and find 
+    maximal cliques using the Bron-Kerbosch algorithm."""
+    # IDEA: Parameterize the graph building, e.g. , allow graph building from org-org, person-person, etc. 
+    edges = [(edge.person_1_id, edge.person_2_id) for edge in Person_Person.query.all()]
+    P = set()
+    _ = [[P.update({vertex}) for vertex in edge] for edge in edges]
+    neighbors = {vertex: set() for vertex in P}
+ 
+    _ = [expand_neighbors(edge, neighbors) for edge in edges]
+
+    logging.debug(f"Size of P: {len(P)}")
+    logging.debug(f"Average number of neighbors: {np.mean([len(v) for k, v in neighbors.items()])}")
+    return list(bron_kerbosch(set(), P, set(), neighbors))
+
+def person_cliques():
+    """Build a graph of person-person relationships, find all cliques
+    in the graph using the Bron-Kerbosch algorithm."""
+    edges = [(edge.person_1_id, edge.person_2_id) for edge in Person_Person.query.all()]
+    P, neighbors = build_graph(edges)
+    cliques = bron_kerbosch_cliques(set(), P, set(), neighbors)
+    return cliques
+
+# IDEA: Refactor to a single Bron-Kerbosch algo, then return 
+# all found cliques or filter to the single maximal clique, as needed.

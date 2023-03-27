@@ -8,5 +8,5 @@ class Clique():
     """Store clique details"""
     # Get Org-Locs, Person-Locs, Person-Orgs
     # Each of the id's in these sets become our set of vertices.
-
-    pass 
+    def to_json(self):
+        pass 

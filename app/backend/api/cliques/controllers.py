@@ -14,6 +14,8 @@ from classes.Junctions import Person_Location
 from classes.Junctions import Person_Organization
 from classes.Junctions import Organization_Location
 from classes.Junctions import Person_Person
+from classes.Junctions import Organization_Organization
+
 
 import random
 import numpy as np
@@ -106,13 +108,31 @@ def maximal_clique():
     logging.debug(f"Average number of neighbors: {np.mean([len(v) for k, v in neighbors.items()])}")
     return list(bron_kerbosch(set(), P, set(), neighbors))
 
-def person_cliques():
-    """Build a graph of person-person relationships, find all cliques
-    in the graph using the Bron-Kerbosch algorithm."""
-    edges = [(edge.person_1_id, edge.person_2_id) for edge in Person_Person.query.all()]
-    P, neighbors = build_graph(edges)
-    cliques = bron_kerbosch_cliques(set(), P, set(), neighbors)
-    return cliques
+# def person_cliques():
+#     """Build a graph of person-person relationships, find all cliques
+#     in the graph using the Bron-Kerbosch algorithm."""
+#     edges = [(edge.person_1_id, edge.person_2_id) for edge in Person_Person.query.all()]
+#     P, neighbors = build_graph(edges)
+#     cliques = bron_kerbosch_cliques(set(), P, set(), neighbors)
+#     return cliques
 
 # IDEA: Refactor to a single Bron-Kerbosch algo, then return 
 # all found cliques or filter to the single maximal clique, as needed.
+
+def get_cliques(type_of_clique):
+    """Given a type of clique to find, return all found cliques
+    composed of the given type."""
+    # Case 1: Just find all the cliques for a type. 
+    # type_of_clique must be in [person, location, org, etc.]
+    type_to_table = {"person": Person_Person,
+                     "org": Organization_Organization}
+    edges = [(edge.id_1, edge.id_2) for edge in type_to_table[type_of_clique].query.all()]
+    P, neighbors = build_graph(edges)
+    cliques = bron_kerbosch_cliques(set(), P, set(), neighbors)
+    cliques = [list(clique) for clique in cliques]
+    return cliques
+ 
+ 
+# Case 2: Find all cliques which include a given node. 
+# Case 3: Find all cliques of a given type which intersect a node. 
+

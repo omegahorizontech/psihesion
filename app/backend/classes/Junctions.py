@@ -31,9 +31,18 @@ class Person_Organization(db.Model):
     
 class Person_Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    person_1_id = db.Column(db.Integer, ForeignKey("person.id"), nullable=False)
-    person_2_id = db.Column(db.Integer, ForeignKey("person.id"), nullable=False)
+    id_1 = db.Column(db.Integer, ForeignKey("person.id"), nullable=False)
+    id_2 = db.Column(db.Integer, ForeignKey("person.id"), nullable=False)
     type_id = db.Column(db.Integer) # IDEA: Use a relation-type lookup table. 
-
+    # IDEA: CONSTRAINT: entity_1 != entity_2
     def __repr__(self):
-        return f"(#{self.id}) Person {self.person_1_id} relates to {self.person_2_id} by {self.type_id}"
+        return f"(#{self.id}) Person {self.id_1} relates to Person {self.id_2} by {self.type_id}"
+    
+class Organization_Organization(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    id_1 = db.Column(db.Integer, ForeignKey("organization.id"), nullable=False)
+    id_2 = db.Column(db.Integer, ForeignKey("organization.id"), nullable=False)
+    type_id = db.Column(db.Integer) # IDEA: Use a relation-type lookup table. 
+    # IDEA: CONSTRAINT: entity_1 != entity_2
+    def __repr__(self):
+        return f"(#{self.id}) Organization {self.id_1} relates to Organization {self.id_2} by {self.type_id}"

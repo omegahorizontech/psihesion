@@ -1,0 +1,25 @@
+0. Definitions
+1. Scenarios w/ alternatives
+  - doc writing, could have been less of a contest, would have been more enfranchising, deteriorated trust, increased defective env
+  - layoff, and then asked to do one more month - alternatively, options and feeling of choice led to 1099 for two more months in different role and more graceful exit, likely to trust more if future opportunities, increased cooperation
+  - detail other scenarios
+2. Conjecture of distributions, creation of field that measures relationship between clarity of boundaries and cooperation degree, field is contest degree
+3. Good vs bad actions list of professional guidelines
+4. Trust as foundation for relationships, generally (without trust, you're alone)
+  - logistics pipelines rely on trust in production being safe
+  - networking socially/professionally and building cooperative norms so when there's a stressful goal, teamwork
+  - support and space to be vulnerable, open, less risk in a trust chain
+  - internet relies on trust, communication networks make use of certificate chains
+  - trust allows people to communicate highlights and even through innuendo, so that trusting teams have advantage over adversary
+  - international alliances - like NATO, e.g. Finland recently joined allowing for novel operations between alliance members
+6. Consequences of loss of trust, e.g. transactional relationships instead
+7. Further reading (sources)
+8. Game Theory
+  - Prisoners dilemma
+  - multiple round prisoners dilemma
+  - applications towards everyday life (different kinds of intimacy, one centered around economics for corporations)
+ 9. Actionable steps to take today
+  - Encourage Team Players, Not Team Chumps
+  - foster environment that builds self-esteem
+  - setting clear boundaries can simplify problems by crated a defined scope
+  - ultimately, striving for a path forward, with mutual agreement 

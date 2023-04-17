@@ -1,0 +1,56 @@
+Educating 15FEB2022 through 22SEP2022
+
+It matters only that the one learning has the motiviation to learn. Determining the motivation (or lack thereof) of the learner assists any mentor in determining one, of many, correct processes for the learner. The mentor, ideally, also learns, and may also be a learner for yet a different mentor. Educating quickly becomes a community effort to the astute audience member, so consider automating the repetitive tasks.
+
+For example, many teachers - not to be confused with mentor in the above context - develop rigorous educational material, and they just give it away for a seemingly free cost. The thought-leader effect provides monitary and social benefits, especially when one truly considers the incentive and institutional structure of platforms like YouTube and the rise of others like Codecademy and Khan Academy. Moreover, the mentor ought to coordinate their lessons by making use of the free and open educational material. Curating the free material allows the learner to benefit from crowdsource/user-tested/audience-focused videos and education. Finally, the learner does not have the experiential context for determing which education path provides the most utility, so the mentor ought to view themselves as a trusted guide (with flaws) describing milestones and signposts. The learner strives for each objective, understanding the limits of human prediction, and failure allows the mentor to adjust by further sub-dividing these milestones and signposts into progressively smaller goals. In an Agile (software) way, educational curation of materials breaks more complicated lessons into smaller components: Epic, Stories, and Tasks allow the learner and mentor to understand their work on a variety of different levels of abstraction. By viewing work in an Agile way, the learner develops a critical understanding and comprehension of accomplishing large goals through rigorous work methodologies.
+
+Learners may be at different ages and experience levels. Furthermore, the learner often already developed vastly different viewpoints when compared with other learners (by the way, their life experience happen through entirely emergent and noraml processes). For overall success, the mentor must foster a healthy culture of psychologial openess and must encourage other members of the education program to accomplish their goals. Fundamentally, the learners must develop intrinsic motivation for their goals, and must aim for their goals because of their development of the life experiences, while reaching towards self-actualization and overall fulfillment.
+
+Formal educational program effectiveness must be rigorous and well-defined, and scientific rigor assists with providing a logical flow for learners. The logic maintains a culture or rationality, combined with psychological openess. Learners must be relatively constrained by the boundaries of the educational program, with enough attention to make mistakes, and space to learn from those mistakes. People often learn more from their mistakes (and traumas) than they do from their successes! Many flaws in the previous prototype educational program (The Pad) most likely (perhaps, certainly) arose from the lack of a formal program with well-defined boundaries. A sample program should include the following steps:
+
+1. Basic Life Skills (not ordered)
+	a. Budgeting
+	b. Household chores
+	c. Sleep patterns
+	d. Drug usage (smoking, alcohol)
+	e. Importance of Exercise
+	f. Relaxing Behaviors (off-time stress relief)
+	g. Social skills (soft startups)
+	h. Sexual health saftey
+	i. Continuing Education: Khan Academy and Youtube - Community and 4 year Colleges and Continuing Academia
+	j. Daily Schedule and the Basic Plan of 4 hours of flow work per day
+	k. Eating Regularly and Metabolism
+	l. Mindfulness and meditation, self-reflection 
+
+2. Basic Programming Skills (ordered)
+	a. Python or Angular
+	b. Workspace setup
+	c. GitHub
+	d. Codecademy
+	e. Slack
+	f. Coder as the Professional Searcher - "How to Google and YouTube Search"
+	g. Learner chooses project that overlaps with Educational Program goals
+	h. SCRUM, Agile Manifesto, DSU, and modern software development
+	
+3. Basic Professional Skills (ordered)
+	a. Resume writing
+	b. LinkedIn and other Professional Portals
+	c. Email Ettique and Texting, Social Media, and "The Medium is the Message"
+	d. Applying for jobs - understanding the "Screening Process" for candidates
+	e. Interviewing and mastering the technical interview
+
+4. Basic Entreprenuership Skills (ordered)
+Some learners may be particularlly skilled, motivated, and ambitous. These learners ought to be engaged with in a more in-depth, special, program for those passionate about improving the world around them.
+	a. Equity
+	b. Legal
+	c. Accounting
+	d. Operarting Agreement
+	e. Cautious and deliberate networking
+	f. Guilds
+	g. Automation
+	h. Gratitude and humility
+
+
+
+Lastly, in the sprit of performing with grit, adaptability, and resliency, each lesson for the learner ought to be encapsulated and self-contained - meaning, the learner can stop the program and start the program at a later time based on their own schedule (in contrast to 20th century and early 21st century educational programs)
+

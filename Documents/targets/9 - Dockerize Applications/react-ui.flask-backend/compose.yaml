@@ -1,0 +1,40 @@
+# <root>/compose.yaml
+services:
+  db:
+    container_name: db
+    image: postgres:13.7
+    environment:
+      - POSTGRES_DB=database
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5433:5433
+  flask:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: backend.local.Dockerfile
+    volumes:
+      - type: bind
+        source: ./backend
+        target: /usr/src/app/backend/
+    command: bash /usr/src/app/backend/run.sh
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+  react:
+    container_name: ui
+    build:
+      context: ./ui
+      dockerfile: ui.local.Dockerfile
+    stdin_open: true
+    restart: always
+    volumes:
+      - "./ui:/app/ui"
+      - /app/ui/node_modules/
+    command: npm run start
+    ports:
+      - 3000:3000
+    depends_on:
+      - flask

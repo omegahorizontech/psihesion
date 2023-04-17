@@ -1,0 +1,32 @@
+# Concepts
+###### Apr 19 2022; Authors: Brian C., Nate B.
+
+## Overview
+Using a pre-existing search engine to generate leads for exploration
+
+## Steps
+1. Use Programmable Search Engine (https://developers.google.com/custom-search) to generate seeds for further crawling.
+  - Documentation for the REST API starts here: https://developers.google.com/custom-search/v1/using_rest
+  - <b>Tech Details:</b> Python Script (Multithreaded/Multiproc as necessary in non-prototype) calling and storing the API results (queries) - in datasource, likely NoSQL (probably ElasticSearch/Mongo combo). Storing related nodes/edges in graph Neo4J Database if this project gets there.
+
+
+2. Webcrawling on the 'seeds'
+  - <b>Tech Details:</b> Also a script, like in step 1 (and by the way, smaller functions can work in a AWS Lambda-esque approach), and data storage follows the same process. Main difference includes a Webcrawling library like BeautifulSoup if Python (most likely) based crawling
+
+
+3. Entity Relation Extraction (Psi Elements formerly known as Psi Objects) - Psi Elements are linked together as they relate to one another.
+  - <b>Process</b>:
+    - (1) Natural Language Processing (NLP) of some kind (NLTK, at least)
+    - (2) Generation of Entity Relationships (SpaCy if it becomes more advanced, or as another set of tools)
+        - TFIDF for example can be modified to find Psi Relationships (graph edges)
+        - Reverse Indices factorize (in mathematical sense) structural relationships between elements (including Psi Elements) - in order to measure 'relatedness' among elements
+  - <b>Definitions</b>:
+    - (Military) Element: https://www.lexico.com/definition/element
+      - 1.3. A group of people of a particular kind within a larger group.
+      - Example: <i>'the younger elements in the party are opposed to the move'</i>
+    - Psi Element: The most fundamental type of cultural unit in a system
+      - A group of **people, places, or things,** of a particular kind within a larger group.
+  - <b>Tech Details:</b> Aim is to associate relationships with statistical significance in order to build Bayesian relationships between Psi Elements (applied computational statistical techniques)
+
+4. UI/Python API Query Application
+  - For an example, with potential reverse-engineering or code extension, see: https://github.com/omegahorizontech/omega-discovery-automation/releases/tag/v1.2.0

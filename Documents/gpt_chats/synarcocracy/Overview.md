@@ -1,4 +1,4 @@
-# Overview
+## Overview
 Synarcocracy is a political system in which a small group of individuals or a council rules collectively, sharing power and decision-making authority. The term "synarcocracy" is derived from the Greek words "syn" meaning together or with, and "archein" meaning to rule.
 
 In a synarcocracy, the ruling council or group usually consists of representatives from various sectors or interest groups within society. These representatives may come from political parties, social organizations, economic sectors, or other relevant stakeholders. The idea behind a synarcocracy is to ensure broad representation and participation in the decision-making process.
